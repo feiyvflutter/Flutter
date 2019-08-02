@@ -127,7 +127,7 @@ class IconTextButton extends RaisedButton {
     Duration animationDuration,
     @required Widget icon,
     @required Widget label,
-    IconTextAlignment iconTextAlignment,
+    @required IconTextAlignment iconTextAlignment,
   }) = _IconTextButtonWithIcon;
 
   @override
