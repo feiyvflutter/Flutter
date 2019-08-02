@@ -4,7 +4,7 @@
 
 ## 自定义组件
 
-1. IconTextButton
+### 1. IconTextButton
  `IconTextButton` 是一个图文按钮，Flutter的RaisedButton按钮RaisedButton.icon()按钮只能实现左图右文字
  
  `IconTextButton.icon()` 可以实现四种样式：
