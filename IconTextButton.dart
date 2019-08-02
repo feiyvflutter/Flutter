@@ -1,4 +1,8 @@
 /*
+  Date:2019-08-02
+  Author：飞羽
+  GitHub：https://github.com/feiyvflutter/Flutter/blob/master/IconTextButton.dart
+  
   IconTextButton 是一个图文按钮，
   Flutter的RaisedButton按钮RaisedButton.icon()按钮只能实现左图右文字
 
