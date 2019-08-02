@@ -45,7 +45,7 @@ enum IconTextAlignment {
   iconRightTextLeft,//图在右文字在左
 }
 
-class IconTextButton extends RaisedButton {
+class IconTextButton extends MaterialButton {
   /// Create a filled button.
   ///
   /// The [elevation], [highlightElevation], [disabledElevation], and
