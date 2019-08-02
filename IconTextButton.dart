@@ -1,99 +1,37 @@
-// Copyright 2015 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+/*
+  IconTextButton 是一个图文按钮，
+  Flutter的RaisedButton按钮RaisedButton.icon()按钮只能实现左图右文字
+
+  IconTextButton.icon() 可以实现四种样式：
+      图在上文字在下，图在下文字在上，图在左文字在右，图在右文字在左
+
+  使用也很简单,其它属性设置和RaisedButton.icon()一样，
+  只需要设置属性iconTextAlignment，它是一个枚举值   
+  
+  enum IconTextAlignment {
+    iconTopTextBottom,//图在上文字在下
+    iconBottomTextTop,//图在下文字在上
+    iconLeftTextRight,//图在左文字在右
+    iconRightTextLeft,//图在右文字在左
+  }
+  
+  eg:
+  IconTextButton.icon(
+    icon: Icon(Icons.add_alarm,size: 80,),
+    label: Text("图下文上"),
+    color: Colors.lightBlue,
+    textColor: Colors.white,
+    elevation: 4.0,
+    iconTextAlignment: IconTextAlignment.iconBottomTextTop,
+    onPressed: (){
+      onClick("图下文上");
+    },
+  ),
+
+*/
 
 import "package:flutter/foundation.dart";
-// import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-
-
-/// A material design "raised button".
-///
-/// A raised button is based on a [Material] widget whose [Material.elevation]
-/// increases when the button is pressed.
-///
-/// Use raised buttons to add dimension to otherwise mostly flat layouts, e.g.
-/// in long busy lists of content, or in wide spaces. Avoid using raised buttons
-/// on already-raised content such as dialogs or cards.
-///
-/// If the [onPressed] callback is null, then the button will be disabled and by
-/// default will resemble a flat button in the [disabledColor]. If you are
-/// trying to change the button's [color] and it is not having any effect, check
-/// that you are passing a non-null [onPressed] handler.
-///
-/// If you want an ink-splash effect for taps, but don't want to use a button,
-/// consider using [InkWell] directly.
-///
-/// Raised buttons have a minimum size of 88.0 by 36.0 which can be overridden
-/// with [ButtonTheme].
-///
-/// {@tool snippet --template=stateless_widget_scaffold}
-///
-/// This sample shows how to render a disabled RaisedButton, an enabled RaisedButton
-/// and lastly a RaisedButton with gradient background.
-///
-/// ![Three raised buttons, one enabled, another disabled, and the last one
-/// styled with a blue gradient background](https://flutter.github.io/assets-for-api-docs/assets/material/raised_button.png)
-///
-/// ```dart
-/// Widget build(BuildContext context) {
-///   return Center(
-///     child: Column(
-///       mainAxisSize: MainAxisSize.min,
-///       children: <Widget>[
-///         const RaisedButton(
-///           onPressed: null,
-///           child: Text(
-///             'Disabled Button',
-///             style: TextStyle(fontSize: 20)
-///           ),
-///         ),
-///         const SizedBox(height: 30),
-///         RaisedButton(
-///           onPressed: () {},
-///           child: const Text(
-///             'Enabled Button',
-///             style: TextStyle(fontSize: 20)
-///           ),
-///         ),
-///         const SizedBox(height: 30),
-///         RaisedButton(
-///           onPressed: () {},
-///           textColor: Colors.white,
-///           padding: const EdgeInsets.all(0.0),
-///           child: Container(
-///             decoration: const BoxDecoration(
-///               gradient: LinearGradient(
-///                 colors: <Color>[
-///                   Color(0xFF0D47A1),
-///                   Color(0xFF1976D2),
-///                   Color(0xFF42A5F5),
-///                 ],
-///               ),
-///             ),
-///             padding: const EdgeInsets.all(10.0),
-///             child: const Text(
-///               'Gradient Button',
-///               style: TextStyle(fontSize: 20)
-///             ),
-///           ),
-///         ),
-///       ],
-///     ),
-///   );
-/// }
-/// ```
-/// {@end-tool}
-///
-/// See also:
-///
-///  * [FlatButton], a material design button without a shadow.
-///  * [DropdownButton], a button that shows options to select from.
-///  * [FloatingActionButton], the round button in material applications.
-///  * [IconButton], to create buttons that just contain icons.
-///  * [InkWell], which implements the ink splash part of a flat button.
-///  * [RawMaterialButton], the widget this widget is based on.
-///  * <https://material.io/design/components/buttons.html>
 
 //add by 飞羽 2019-08-02
 enum IconTextAlignment {
