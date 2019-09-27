@@ -100,4 +100,54 @@
   ```
   
   
+  
+  ### 2. IfeiyvIconTextButton 是 IconTextButton的升级版
+  
+  > 2019-09-27 更新 V1.0.1
+    更新内容：
+
+      1. IconTextAlignment 添加 noIconOnlyText,//无图仅包含文字
+          此时创建的 IfeiyvIconTextButton 的Icon属性 【必填】可以为 null 也可以是 不为null的Icon
+
+      2. 添加 backgroundView 为 IfeiyvIconTextButton  添加一个背景视图Widget，常用来做背景图片..
+
+        如果要使用圆角则可以使用  IfeiyvIconTextButton.icon 中的 shape属性 
+          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(40.0))),
+
+        如果backgroundView是背景图片可以ClipRRect进行切圆角
+        ClipRRect(
+          borderRadius: BorderRadius.all(Radius.circular(40.0)),
+          child: Image.asset("images/bg.png",fit: BoxFit.fill,height: 80,),
+        ),
+
+        注意：如果 IfeiyvIconTextButton设置了高度
+          如: 
+          SizedBox(
+               height: 80,
+               child:IfeiyvIconTextButton.icon()
+          )
+          如果想要背景view或者背景图片填充满，最好高度也设置一下，和height高度一致
+
+      3. 为了布局更加灵活，添加可选参数
+            double paddingIconText,// 图标和文字之间的间隔
+            double paddingLabelToBorder,// 文字到按钮边界的间隔
+
+      eg:
+
+        IfeiyvIconTextButton.icon(
+            padding: EdgeInsets.all(0),
+            shape:const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(40.0))),
+            backgroundView: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(40.0)),
+                child: Image.asset("images/bg.png",fit: BoxFit.fill,height: 80,),
+            ),
+            onPressed: (){},
+            iconTextAlignment: IconTextAlignment.noIconOnlyText,
+            icon:null,
+            label: Text("登录",style: TextStyle(
+                fontSize: 20,
+                color: Colors.white
+              ),),
+            ),
+  
 
